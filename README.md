@@ -28,5 +28,5 @@ To remove the `test-env` image, run:
 docker rmi test-env --force
 ```
 
-To speed up testing, the `build-and-run.sh` builds and then runs the docker container interactively
-using the same commands as above, chained together. `rm-test-env.sh` will remove the test environment.
+To simplify this even further, just run `make` after cloning the repository,
+which runs the `docker build` and `run` commands from above.

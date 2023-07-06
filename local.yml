@@ -1,4 +1,5 @@
 - hosts: localhost
+  become: yes
   vars:
     home: "{{ lookup('env', 'HOME') }}"
   pre_tasks:
