@@ -2,6 +2,6 @@
   apt_repository:
     repo: ppa:longsleep/golang-backports
 
-- name: Install General Utilities
+- name: Install Golang
   apt:
     name: golang

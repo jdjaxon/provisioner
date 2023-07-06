@@ -1,14 +1,21 @@
----
-- name: Standardizing development environment
-  hosts: localhost
-  become: true
+- hosts: localhost
+  vars:
+    home: "{{ lookup('env', 'HOME') }}"
+  pre_tasks:
+  - name: Update Apt
+    become: true
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
   tasks:
     - include: tasks/general.yml
+    - include: tasks/cac_setup.yml
     - include: tasks/zsh.yml
     - include: tasks/vim.yml
     - include: tasks/c.yml
     - include: tasks/python.yml
     - include: tasks/golang.yml
     - include: tasks/node.yml
-    - include: tasks/cac_setup.yml
     - include: tasks/docker.yml
+    - include: tasks/vagrant.yml

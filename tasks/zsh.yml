@@ -1,4 +1,4 @@
-- name: Install General Utilities
+- name: Install ZSH
   apt:
     name: zsh
 
@@ -6,4 +6,10 @@
   shell: chsh -s $(which zsh)
 
 - name: Install ohmyzsh
-  shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  become_user: jeremy
+
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
