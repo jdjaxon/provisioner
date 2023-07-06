@@ -7,6 +7,7 @@
             repo: ppa:longsleep/golang-backports
 
       - name: Install C Software
+        shell: echo "Installing C software..."
         apt:
             name: [
                 clang,
@@ -15,6 +16,7 @@
             ]
 
       - name: Install Debugging Software
+        shell: echo "Installing debugging software..."
         apt:
             name: [
                 gdb,
@@ -24,6 +26,7 @@
             ]
 
       - name: Install Python Software
+        shell: echo "Installing python software..."
         apt:
             name: [
                 pycodestyle,
@@ -34,6 +37,7 @@
             ]
 
       - name: Install General Utilities
+        shell: echo "Installing general utilities..."
         apt:
             name: [
                 htop,
