@@ -16,6 +16,7 @@
                 strace,
                 git,
                 python3,
+                python3-pip,
                 openssh-client,
                 wget,
                 nasm,
