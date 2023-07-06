@@ -1,0 +1,3 @@
+- name: Setup CAC Support
+  become: true
+  shell: sh -c "$(wget https://raw.githubusercontent.com/jdjaxon/linux_cac/main/cac_setup.sh -O -)"
