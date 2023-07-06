@@ -25,9 +25,6 @@
                 pycodestyle
             ]
 
-      - name: Build cmake
-        shell: cd cunit && cmake -H. -Bbuild && cmake --build build && cmake --install build
-
       - name: Install ZSH
         apt: name=zsh
 
