@@ -1,0 +1,7 @@
+- name: Update golang repo
+  apt_repository:
+    repo: ppa:longsleep/golang-backports
+
+- name: Install General Utilities
+  apt:
+    name: golang
