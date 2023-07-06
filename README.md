@@ -11,7 +11,7 @@ To run the provisioner, execute one of the following commands:
 | Method | Command |
 |:-:|:-:|
 | `wget` | `sh -c "$(wget https://raw.githubusercontent.com/jdjaxon/provisioner/main/provision.sh -O -)"` |
-| `curl` | `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"` |
+| `curl` | `sh -c "$(curl -fsSL https://raw.github.com/jdjaxon/provisioner/main/provision.sh)"` |
 
 **NOTE:** For running with docker, see the [Testing](#testing) section.
 
