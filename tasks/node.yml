@@ -1,0 +1,32 @@
+- name: Install node
+  apt:
+    name: [
+      nodejs,
+      npm,
+    ]
+
+- name: Install Yarn
+  npm:
+    name: yarn
+    global: yes
+
+- name: Install eslint
+  npm:
+    name: eslint
+    global: yes
+
+- name: Install Typescript
+  npm:
+    name: typescript
+    global: yes
+
+- name: Install n
+  npm:
+    name: n
+    global: yes
+
+- name: Set npm version
+  shell: n 14
+
+- name: Install Vue.js
+  shell: npm install -g @vue/cli
