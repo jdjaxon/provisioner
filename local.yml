@@ -21,7 +21,7 @@
             - wireshark
 
       - name: Installing pip3 Packages
-        pip3: name={{item}}
+        pip: name={{item}}
         with_items:
             - pylint
             - pydocstyle
@@ -30,8 +30,11 @@
       - name: Build cmake
         shell: cd cunit && cmake -H. -Bbuild && cmake --build build && cmake --install build
 
-      - name: Install oh-my-zsh
+      - name: Install ZSH
         apt: name=zsh
+      - name: Change default shell
         shell: chsh -s $(which zsh)
+
+      - name: Install ohmyzsh
         shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
