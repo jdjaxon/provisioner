@@ -8,14 +8,11 @@ This provisioner was built on and for Ubuntu 20.04. Currently, this will only wo
 ## Running
 To run the provisioner, execute one of the following commands:
 
-**Provisioning via wget:**
-```
-sh - c "$(wget https://raw.githubusercontent.com/jdjaxon/provisioner/main/provision.sh -O -)"
-```
-**Provisioning via curl:**
-```
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
+| Method | Command |
+|:-:|:-:|
+| `wget` | `sh - c "$(wget https://raw.githubusercontent.com/jdjaxon/provisioner/main/provision.sh -O -)"` |
+| `curl` | `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"` |
+
 **NOTE:** For running with docker, see the [Testing](#testing) section.
 
 ## Testing

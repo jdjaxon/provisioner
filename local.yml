@@ -17,6 +17,8 @@
                 golang,
                 htop,
                 nasm,
+                nodejs,
+                npm,
                 openssh-client,
                 pycodestyle,
                 pydocstyle,
@@ -28,11 +30,22 @@
                 valgrind,
                 vim,
                 wget,
-                wireshark
+                wireshark,
+                zsh
             ]
 
-      - name: Install ZSH
-        apt: name=zsh
+      - name: Install npm Utilities
+        npm:
+            name: [
+                yarn,
+                eslint,
+                typescript,
+                n
+            ]
+            global: yes
+
+      - name: Set npm version
+        shell: n 14
 
       - name: Change default shell
         shell: chsh -s $(which zsh)
@@ -40,3 +53,8 @@
       - name: Install ohmyzsh
         shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
+      - name: Setup CAC Support
+        shell: sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+      - name: Install Docker
+        shell: sudo sh -c "$(wget https://get.docker.com -O -)"
