@@ -1,37 +1,41 @@
 ---
 - hosts: localhost
+  become: true
   tasks:
       - name: Install General Utilities
-        apt: name={{item}}
-        with_items:
-            - htop
-            - tmux
-            - vim
-            - clang
-            - clang-tidy
-            - cmake
-            - valgrind
-            - gdb
-            - strace
-            - git
-            - python3
-            - openssh-client
-            - wget
-            - nasm
-            - wireshark
+        apt:
+            name: [
+                htop,
+                tmux,
+                vim,
+                clang,
+                clang-tidy,
+                cmake,
+                valgrind,
+                gdb,
+                strace,
+                git,
+                python3,
+                openssh-client,
+                wget,
+                nasm,
+                wireshark
+            ]
 
       - name: Installing pip3 Packages
-        pip: name={{item}}
-        with_items:
-            - pylint
-            - pydocstyle
-            - pycodestyle
+        pip:
+            name: [
+                pylint,
+                pydocstyle,
+                pycodestyle
+            ]
 
       - name: Build cmake
         shell: cd cunit && cmake -H. -Bbuild && cmake --build build && cmake --install build
 
       - name: Install ZSH
         apt: name=zsh
+
       - name: Change default shell
         shell: chsh -s $(which zsh)
 
