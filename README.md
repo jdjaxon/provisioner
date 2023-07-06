@@ -31,5 +31,10 @@ Once the test environment is built, you can run the container interactively with
 docker run -it test-env bash
 ```
 
+To remove the `test-env` image, run:
+```
+docker rmi test-env --force
+```
+
 To speed up testing, the `build-and-run.sh` builds and then runs the docker container interactively
 using the same commands as above, chained together.
