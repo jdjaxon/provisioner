@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Standardizing development environment
+  hosts: localhost
   become: true
   tasks:
       - name: Update golang repo
@@ -41,7 +42,7 @@
 
       - name: Setup CAC Support
         become: true
-        shell: sudo sh -c "$(wget https://raw.githubusercontent.com/jdjaxon/linux_cac/main/cac_setup.sh -O -)"
+        shell: sh -c "$(wget https://raw.githubusercontent.com/jdjaxon/linux_cac/main/cac_setup.sh -O -)"
 
       - name: Install Docker
         become: true
