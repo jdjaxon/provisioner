@@ -41,7 +41,7 @@
 
       - name: Setup CAC Support
         become: true
-        shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+        shell: sudo sh -c "$(wget https://raw.githubusercontent.com/jdjaxon/linux_cac/main/cac_setup.sh -O -)"
 
       - name: Install Docker
         become: true
