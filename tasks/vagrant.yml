@@ -1,0 +1,11 @@
+- name: Add Vagrant PGP Key
+  url: https://apt.releases.hashicorp.com/gpg
+
+- name: Add Vagrant Repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+- name: Install Vagrant
+  apt:
+    name: vagrant
+
