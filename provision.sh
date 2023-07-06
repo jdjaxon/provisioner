@@ -4,7 +4,8 @@
 # which will finish the provisioning process.
 
 main() {
-    apt-add-repository --yes --update ppa:ansible/ansible
+    apt-add-repository -y ppa:ansible/ansible
+    apt update
     DEBIAN_FRONTEND=noninteractive apt install -y ansible git software-properties-common
     ansible-pull -U https://github.com/jdjaxon/provisioner
 }
