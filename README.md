@@ -2,20 +2,17 @@
 A simple provisioning script to setup a generic development workstation.
 Users will need to provide specific configuration files for a personalized experience.
 
-## Supported Distribution
+## Supported Distributions
 This provisioner was built on and for Ubuntu 20.04. Currently, this will only work on distributions with `apt-get`.
 
+## Running
+Clone this repo and simply run the `provision.sh` script.
+
 ## Testing
-The Dockerfile is only used to automate testing without wrecking my personal workstation.
+The `Dockerfile` is only used to automate testing without wrecking my personal workstation.
 
-### Docker Commands
-Building the docker environment:
-```
-docker build -t dev .
-```
-- **NOTE:** the dot at the end of the command tell docker to look locally for the Dockerfile.
+### Building Docker
+Just run `build-test-env.sh` shell script.
 
-Running the container interactively to verify the environment:
-```
-docker run -it dev bash
-```
+### Running Docker
+To run the built container interactively, run the `run-test-env.sh` script.
