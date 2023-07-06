@@ -13,7 +13,6 @@
                 clang-tidy,
                 cmake,
                 gdb,
-                git,
                 golang,
                 htop,
                 nasm,
