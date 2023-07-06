@@ -5,7 +5,7 @@
 
 main() {
     apt-add-repository -y --update ppa:ansible/ansible
-    DEBIAN_FRONTEND=noninteractive apt install -y ansible git software-properties-common
+    DEBIAN_FRONTEND=noninteractive sudo apt install -y ansible git software-properties-common
     ansible-pull -U https://github.com/jdjaxon/provisioner
 }
 
