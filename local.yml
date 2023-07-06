@@ -40,10 +40,12 @@
         shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
       - name: Setup CAC Support
-        shell: sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+        become: true
+        shell: sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
       - name: Install Docker
-        shell: sudo sh -c "$(wget https://get.docker.com -O -)"
+        become: true
+        shell: sh -c "$(wget https://get.docker.com -O -)"
 
       - name: Install Yarn
         npm:
