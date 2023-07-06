@@ -5,28 +5,42 @@
       - name: Update golang repo
         apt_repository:
             repo: ppa:longsleep/golang-backports
-#        shell: apt-add-repository -y --update ppa:longsleep/golang-backports
 
-      - name: Install General Utilities
+      - name: Install C Software
         apt:
             name: [
                 clang,
                 clang-tidy,
                 cmake,
+            ]
+
+      - name: Install Debugging Software
+        apt:
+            name: [
                 gdb,
+                valgrind,
                 git,
                 golang,
-                htop,
-                nasm,
-                openssh-client,
+            ]
+
+      - name: Install Python Software
+        apt:
+            name: [
                 pycodestyle,
                 pydocstyle,
                 pylint,
                 python3,
                 python3-pip,
+            ]
+
+      - name: Install General Utilities
+        apt:
+            name: [
+                htop,
+                nasm,
+                openssh-client,
                 strace,
                 tmux,
-                valgrind,
                 vim,
                 wget,
                 wireshark
