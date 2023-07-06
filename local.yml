@@ -70,3 +70,6 @@
       - name: Set npm version
         shell: n 14
 
+      - name: Install Vue.js
+        shell: npm install -g @vue/cli
+
