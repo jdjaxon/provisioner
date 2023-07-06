@@ -19,12 +19,7 @@
                 openssh-client,
                 wget,
                 nasm,
-                wireshark
-            ]
-
-      - name: Installing pip3 Packages
-        pip:
-            name: [
+                wireshark,
                 pylint,
                 pydocstyle,
                 pycodestyle
