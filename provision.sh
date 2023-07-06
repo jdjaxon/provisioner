@@ -4,12 +4,8 @@
 # which will finish the provisioning process.
 
 main() {
-    apt update
-    # This is a hacky way of setting the time zone information.
-    # 2 for America; 105 is for New York
-    echo "2\n 105\n" | apt install -y software-properties-common
     apt-add-repository --yes --update ppa:ansible/ansible
-    apt install -y ansible git
+    apt install -y ansible git software-properties-common
     ansible --version
     ansible-pull -U https://github.com/jdjaxon/provisioner
 }
