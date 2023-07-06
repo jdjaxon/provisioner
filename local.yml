@@ -1,8 +1,27 @@
 - hosts: localhost
   become: true
   tasks:
-      - name: Install htop
+      - name: Install General Utilities
         apt: name={{item}}
         with_items:
             - htop
             - tmux
+            - vim
+            - clang
+            - clang-tidy
+            - cmake
+            - valgrind
+            - gdb
+            - strace
+            - git
+            - python3
+            - openssh-client
+            - wget
+            - nasm
+
+      - name: Installing pip3 Packages
+        pip3: name={{item}}
+        with_items:
+            - pylint
+            - pydocstyle
+            - pycodestyle
