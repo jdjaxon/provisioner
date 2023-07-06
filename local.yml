@@ -3,12 +3,12 @@
   hosts: localhost
   become: true
   tasks:
-    - include: general.yml
-    - include: zsh.yml
-    - include: vim.yml
-    - include: c.yml
-    - include: python.yml
-    - include: golang.yml
-    - include: node.yml
-    - include: cac_setup.yml
-    - include: docker.yml
+    - include: tasks/general.yml
+    - include: tasks/zsh.yml
+    - include: tasks/vim.yml
+    - include: tasks/c.yml
+    - include: tasks/python.yml
+    - include: tasks/golang.yml
+    - include: tasks/node.yml
+    - include: tasks/cac_setup.yml
+    - include: tasks/docker.yml
