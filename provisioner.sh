@@ -2,6 +2,7 @@
 
 sudo easy_install pip
 sudo pip install ansible
+
 # Verify ansible installation worked
 ansible --version
 
