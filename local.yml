@@ -2,28 +2,32 @@
 - hosts: localhost
   become: true
   tasks:
+      - name: Update golang repo
+        shell: apt-add-repository -y --update ppa:longsleep/golang-backports
+
       - name: Install General Utilities
         apt:
             name: [
-                htop,
-                tmux,
-                vim,
                 clang,
                 clang-tidy,
                 cmake,
-                valgrind,
                 gdb,
-                strace,
                 git,
+                golang,
+                htop,
+                nasm,
+                openssh-client,
+                pycodestyle,
+                pydocstyle,
+                pylint,
                 python3,
                 python3-pip,
-                openssh-client,
+                strace,
+                tmux,
+                valgrind,
+                vim,
                 wget,
-                nasm,
-                wireshark,
-                pylint,
-                pydocstyle,
-                pycodestyle
+                wireshark
             ]
 
       - name: Install ZSH
