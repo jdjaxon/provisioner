@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-# Intended to stage the host for running ansible
+# This script is intended to stage the host for running ansible,
+# which will finish the provisioning process.
 
 easy_install pip
 pip install ansible
 
-# Verify ansible installation worked
+# TODO: Verify ansible installation worked
 ansible --version
 
 apt update
