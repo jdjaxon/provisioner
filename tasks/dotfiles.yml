@@ -1,15 +1,22 @@
-- name: Installing stow
-  apt:
-    name: stow
+- name: Ensure GNU Stow is installed
+  block:
+    - name: Installing stow
+      apt:
+        name: stow
+        state: present
 
-- name: Cloning Dotfiles
-  ansible.builtin.git:
-    repo: 'git@github.com:jdjaxon/dotfiles.git'
-    dest: "{{ home }}/.dotfiles"
-    recursive: yes
-    update: yes
-    accept_hostkey: yes
-    version: master
+    - name: Cloning Dotfiles
+      ansible.builtin.git:
+        repo: 'git@github.com:jdjaxon/dotfiles.git'
+        dest: "{{ home }}/.dotfiles"
+        recursive: yes
+        update: yes
+        accept_hostkey: yes
+        version: master
 
-- name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./ubuntu
+    - name: Stow dotfiles
+      shell: cd "{{ home }}/.dotfiles" && ./stowem.sh
+  rescue:
+    - name: Stow installation failed
+      debug:
+        msg: "Failed to install or execute stow. Check if stow is installed and stowem.sh is executable."
