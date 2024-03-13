@@ -1,13 +1,12 @@
-- name: Install General Utilities
+- name: Install General System Utilities
   apt:
-    name: [
-      build-essential,
-      strace,
-      tmux,
-      valgrind,
-      curl,
-      wget,
-      wireshark,
-      htop,
-      openssh-client
-    ]
+    name:
+      - build-essential
+      - strace
+      - tmux
+      - valgrind
+      - curl
+      - wget
+      - wireshark
+      - htop
+      - openssh-client
