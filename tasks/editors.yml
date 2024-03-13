@@ -1,10 +1,9 @@
-- name: Update golang repo
+- name: Add Neovim PPA
   apt_repository:
     repo: ppa:neovim-ppa/stable
 
 - name: Install Terminal Text Editors
   apt:
-    name: [
-      vim,
-      neovim,
-    ]
+    name:
+      - vim
+      - neovim
