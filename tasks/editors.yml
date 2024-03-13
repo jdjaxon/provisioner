@@ -1,9 +1,17 @@
 - name: Add Neovim PPA
   apt_repository:
     repo: ppa:neovim-ppa/stable
+  register: ppa_added
+
+- name: Update package cache after adding PPA
+  apt:
+    update_cache: yes
+  when: ppa_added.changed
 
 - name: Install Terminal Text Editors
   apt:
     name:
       - vim
       - neovim
+    state: present
+    update_cache: yes
