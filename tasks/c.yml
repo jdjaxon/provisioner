@@ -1,7 +1,7 @@
 - name: Install C and Associated Utilities
   apt:
     name:
-      - clang,
+      - clang
       - clang-tidy
       - cmake
       - gdb
