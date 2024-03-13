@@ -15,3 +15,5 @@
     - include_tasks: tasks/python.yml
     - include_tasks: tasks/golang.yml
     - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/node.yml
+    - include_tasks: tasks/dotfiles.yml
