@@ -2,13 +2,6 @@
   become: yes
   vars:
     home: "{{ ansible_env.HOME }}"
-    tasks_files:
-      - tasks/general.yml
-      - tasks/zsh.yml
-      - tasks/c.yml
-      - tasks/python.yml
-      - tasks/golang.yml
-      - tasks/docker.yml
 
   tasks:
     - name: Update Apt
@@ -16,6 +9,9 @@
         update_cache: yes
         cache_valid_time: 3600
 
-    - name: Include task files
-      include_tasks: "{{ item }}"
-      loop: "{{ task_files }}"
+    - include_tasks: tasks/general.yml
+    - include_tasks: tasks/zsh.yml
+    - include_tasks: tasks/c.yml
+    - include_tasks: tasks/python.yml
+    - include_tasks: tasks/golang.yml
+    - include_tasks: tasks/docker.yml
