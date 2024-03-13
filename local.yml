@@ -1,22 +1,21 @@
 - hosts: localhost
   become: yes
   vars:
-    home: "{{ lookup('env', 'HOME') }}"
-  pre_tasks:
-  - name: Update Apt
-    become: true
-    apt:
-      force_apt_get: true
-      update_cache: true
-      state: present
+    home: "{{ ansible_env.HOME }}"
+    tasks_files:
+      - tasks/general.yml
+      - tasks/zsh.yml
+      - tasks/c.yml
+      - tasks/python.yml
+      - tasks/golang.yml
+      - tasks/docker.yml
+
   tasks:
-    - include: tasks/general.yml
-      #- include: tasks/cac_setup.yml
-    - include: tasks/zsh.yml
-      #- include: tasks/vim.yml
-    - include: tasks/c.yml
-    - include: tasks/python.yml
-    - include: tasks/golang.yml
-      #- include: tasks/node.yml
-    - include: tasks/docker.yml
-      #- include: tasks/vagrant.yml
+    - name: Update Apt
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Include task files
+      include_tasks: "{{ item }}"
+      loop: "{{ task_files }}"
