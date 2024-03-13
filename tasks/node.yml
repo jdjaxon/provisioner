@@ -1,32 +1,33 @@
-- name: Install node
+- name: Install specific version of nodejs and npm
   apt:
-    name: [
-      nodejs,
-      npm,
-    ]
+    name:
+      - nodejs
+      - npm
+    state: present
+    update_cache: yes
 
-- name: Install Yarn
+- name: Upgrade npm to latest
   npm:
-    name: yarn
+    name: npm
     global: yes
+    state: latest
 
-- name: Install eslint
+- name: Install global npm packages
   npm:
-    name: eslint
+    name: "{{ item }}"
     global: yes
+  loop:
+    - yarn
+    - eslint
+    - typescript
+    - n
 
-- name: Install Typescript
-  npm:
-    name: typescript
-    global: yes
-
-- name: Install n
-  npm:
-    name: n
-    global: yes
-
-- name: Set npm version
-  shell: n 14
+- name: Set specific npm version using n
+  shell: n 14  # Replace with your preferred version
+  args:
+    executable: /bin/bash
 
 - name: Install Vue.js
-  shell: npm install -g @vue/cli
+  npm:
+    name: "@vue/cli"
+    global: yes
