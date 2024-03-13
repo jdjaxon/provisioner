@@ -1,9 +1,8 @@
-- name: Install C
+- name: Install C and Associated Utilities
   apt:
-    name: [
-      clang,
-      clang-tidy,
-      cmake,
-      gdb,
-      nasm,
-    ]
+    name:
+      - clang,
+      - clang-tidy
+      - cmake
+      - gdb
+      - nasm
