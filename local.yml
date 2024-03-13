@@ -17,3 +17,4 @@
     - include_tasks: tasks/docker.yml
     - include_tasks: tasks/node.yml
     - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/editors.yml
