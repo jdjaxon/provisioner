@@ -2,14 +2,22 @@
   apt:
     name: zsh
 
-- name: Change default shell
-  shell: chsh -s $(which zsh)
+- name: Change default shell to ZSH
+  command: chsh -s "$(which zsh)"
+  when: ansible_env.SHELL != "/bin/zsh"
 
 - name: Install ohmyzsh
-  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
-  become_user: jeremy
+  ansible.builtin.get_url:
+    url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: "{{ home }}/.oh-my-installer"
+    mode: '0755'
+
+- name: Run oh-my-zsh installer
+  command: "{{ home }}/.oh-my-installer"
+  args:
+    creates: "{{ home }}/.oh-my-zsh"
 
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+    dest: "{{ home }}/.oh-my-zsh/plugins/zsh-autosuggestions"
