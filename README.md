@@ -13,20 +13,21 @@ To run the provisioner, execute one of the following commands:
 **NOTE:** For running with docker, see the [Testing](#testing) section.
 
 ## Testing
-The `Dockerfile` is only used to automate testing without wrecking my personal workstation.
+In order to simplify testing of this project as much as possible, I created a
+`makefile`. Just run `make` after cloning the repository, which runs the
+`docker build` and `run` commands from below.
 
 To manually build the docker image, run the following command from the repo's root directory:
 ```
 docker build -t test-env .
 ```
+
 Once the test environment is built, you can run the container interactively with bash using:
 ```
 docker run -it test-env bash
 ```
+
 To remove the `test-env` image, run:
 ```
 docker rmi test-env --force
 ```
-
-To simplify this even further, just run `make` after cloning the repository,
-which runs the `docker build` and `run` commands from above.
