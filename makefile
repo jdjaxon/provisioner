@@ -3,7 +3,7 @@
 all: build
 
 build:
-	docker build -t test-env . && docker run -it test-env bash
+	docker build --no-cache -t test-env . && docker run -it test-env bash
 
 clean:
 	docker rmi test-env --force
