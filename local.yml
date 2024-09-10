@@ -7,8 +7,6 @@
     - name: Update Apt
       apt:
         update_cache: yes
-        cache_valid_time: 3600
-
     - include_tasks: tasks/general.yml
     - include_tasks: tasks/zsh.yml
     - include_tasks: tasks/c.yml
