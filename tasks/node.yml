@@ -1,4 +1,4 @@
-- name: Install specific version of nodejs and npm
+- name: Install nodejs and npm
   apt:
     name:
       - nodejs
@@ -6,26 +6,17 @@
     state: present
     update_cache: yes
 
-- name: Upgrade npm to latest
-  npm:
-    name: npm
-    global: yes
-    state: latest
-
 - name: Install global npm packages
   npm:
     name: "{{ item }}"
     global: yes
+    state: latest
+    unsafe_perm: yes
   loop:
     - yarn
     - eslint
     - typescript
     - n
-
-- name: Set specific npm version using n
-  shell: n 14  # Replace with your preferred version
-  args:
-    executable: /bin/bash
 
 - name: Install Vue.js
   npm:
